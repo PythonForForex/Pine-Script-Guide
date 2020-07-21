@@ -1,0 +1,17 @@
+//@version=4
+study(title="Higher TF BBands", shorttitle="TF BBands", overlay=true)
+
+// Get user input
+tf = input(title="BBands Timeframe", type=input.resolution, defval="60")
+len = input(title="Length", type=input.integer, defval=20)
+stddev = input(title='StdDev', type=input.integer, defval=2)
+
+[middle, upper, lower] = bb(close, len, stddev)
+
+hbbandsMid = security(syminfo.tickerid, tf, middle, barmerge.gaps_on, barmerge.lookahead_off)
+hbbandsUpper = security(syminfo.tickerid, tf, upper, barmerge.gaps_on, barmerge.lookahead_off)
+hbbandsLower = security(syminfo.tickerid, tf, lower, barmerge.gaps_on, barmerge.lookahead_off)
+
+plot(hbbandsMid)
+plot(hbbandsUpper)
+plot(hbbandsLower)

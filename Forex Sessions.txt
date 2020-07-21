@@ -1,0 +1,10 @@
+//@version=4
+study("Forex Sessions", overlay=true)
+
+Tokyo = time(timeframe.period, "0000-0800")
+London = time(timeframe.period, "0700-1500")
+NY = time(timeframe.period, "1200-2000")
+
+bgcolor(na(Tokyo) ? na : color.fuchsia)
+bgcolor(na(London) ? na : color.blue)
+bgcolor(na(NY) ? na : color.green)

@@ -1,0 +1,7 @@
+//@version=4
+study("price of Apple")
+
+// Get price of Apple
+apple_price = security("AAPL", "D", close)
+
+plot(apple_price)

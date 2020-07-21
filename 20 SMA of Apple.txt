@@ -1,0 +1,10 @@
+//@version=4
+study("Get 20 SMA of Apple")
+
+// Get price of Apple
+apple_price = security("AAPL", "D", close) // 1 Day
+
+// Calculate 20 SMA of Apple
+apple_sma = sma(apple_price, 20)
+
+plot(apple_sma)

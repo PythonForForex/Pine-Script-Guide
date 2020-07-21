@@ -1,0 +1,21 @@
+//@version=4
+strategy("Pair Trade: Inputs")
+
+longTrigger = input(title="% Change for short entries", type=input.float, defval=5)
+shortTrigger = input(title="% Change for long entries", type=input.float, defval=5)
+
+longTrigger := 1 - longTrigger/100
+shortTrigger := 1 + shortTrigger/100
+
+google_close = security("GOOG", "D", close)
+google_open = security("GOOG", "D", open)
+
+price_change = google_close / google_open
+
+if price_change < longTrigger
+    strategy.entry("long", strategy.long, 100)
+
+if price_change > shortTrigger
+    strategy.entry("short", strategy.short, 100)
+
+plot(price_change)

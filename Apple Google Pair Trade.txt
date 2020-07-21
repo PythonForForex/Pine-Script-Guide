@@ -1,0 +1,15 @@
+//@version=4
+strategy("Pair Trade: Apple & Google")
+
+google_close = security("GOOG", "D", close)
+google_open = security("GOOG", "D", open)
+
+price_change = google_close / google_open
+
+if price_change < 0.95
+    strategy.entry("long", strategy.long, 100)
+
+if price_change > 1.05
+    strategy.entry("short", strategy.short, 100)
+
+plot(price_change)
