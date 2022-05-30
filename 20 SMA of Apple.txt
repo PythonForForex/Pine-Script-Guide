@@ -1,10 +1,10 @@
-//@version=4
-study("Get 20 SMA of Apple")
+//@version=5
+indicator("Get 20 SMA of Apple", overlay=true)
 
 // Get price of Apple
-apple_price = security("AAPL", "D", close) // 1 Day
+apple_price = request.security("AAPL", "D", close) // 1 Day
 
 // Calculate 20 SMA of Apple
-apple_sma = sma(apple_price, 20)
+apple_sma = ta.sma(apple_price, 20)
 
 plot(apple_sma)

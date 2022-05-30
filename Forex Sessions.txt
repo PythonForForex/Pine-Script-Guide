@@ -1,5 +1,5 @@
-//@version=4
-study("Forex Sessions", overlay=true)
+//@version=5
+indicator("Forex Sessions", overlay=true)
 
 Tokyo = time(timeframe.period, "0000-0800")
 London = time(timeframe.period, "0700-1500")

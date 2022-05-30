@@ -1,14 +1,14 @@
-//@version=4
+//@version=5
 strategy("My Strategy", overlay=true)
 
 // Create Indicator's
-shortSMA = sma(close, 10)
-longSMA = sma(close, 30)
-rsi = rsi(close, 14)
+shortSMA = ta.sma(close, 10)
+longSMA = ta.sma(close, 30)
+rsi = ta.rsi(close, 14)
 
 // Specify crossover conditions
-longCondition = crossover(shortSMA, longSMA)
-shortCondition = crossunder(shortSMA, longSMA)
+longCondition = ta.crossover(shortSMA, longSMA)
+shortCondition = ta.crossunder(shortSMA, longSMA)
 
 // Execute trade if condition is True
 if (longCondition)
